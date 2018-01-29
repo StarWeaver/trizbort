@@ -1138,10 +1138,8 @@ namespace Trizbort
       font = Settings.ObjectFont;
       brush = palette.SmallTextBrush;
       // Room specific fill brush (White shows global color)
-      var bUseObjectRoomBrush = false;
       if (RoomSmallText != Color.Transparent)
       {
-        bUseObjectRoomBrush = true;
         brush = new SolidBrush(RoomSmallText);
       }
 
@@ -1161,7 +1159,6 @@ namespace Trizbort
           format.Alignment = XStringAlignment.Near;
           var height = InnerBounds.Height / 2 - font.Height / 2;
           var bounds = new Rect(InnerBounds.Left + Settings.ObjectListOffsetFromRoom, InnerBounds.Bottom - height, InnerBounds.Width - Settings.ObjectListOffsetFromRoom, height - Settings.ObjectListOffsetFromRoom);
-          brush = bUseObjectRoomBrush ? new SolidBrush(RoomSmallText) : roombrush;
           pos = bounds.Position;
           pos.X += ObjectsCustomPosition ? ObjectsCustomPositionRight : 0;
           pos.Y += ObjectsCustomPosition ? ObjectsCustomPositionDown : 0;
